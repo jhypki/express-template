@@ -1,15 +1,9 @@
 import express, { Express, NextFunction, Request, Response } from 'express';
-import dotenv from 'dotenv';
 import errorHandler from './middlewares/error-handler';
 import logger from './middlewares/logger';
-
-if (process.env.NODE_ENV !== 'production') {
-    dotenv.config();
-}
+import { PORT } from './config/env';
 
 const app: Express = express();
-
-const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
